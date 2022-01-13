@@ -4,6 +4,7 @@ import (
 	"../utils"
 	"flag"
 	"fmt"
+	"strconv"
 	"strings"
 )
 
@@ -17,10 +18,21 @@ func main(){
 		fmt.Printf("%v", err)
 		return
 	}
-	modifyFiles := strings.Split(msg, "\n")
 
+	var addedSum = 0
+	var removedSum = 0
+	modifyFiles := strings.Split(msg, "\n")
 	for _, item := range modifyFiles {
-		fmt.Println(item)
+		changes := strings.Split(item, "\t")
+		if len(changes) != 3 {
+			continue
+		}
+		added, _ := strconv.Atoi(changes[0])
+		removed, _ := strconv.Atoi(changes[1])
+
+		addedSum += added
+		removedSum += removed
 	}
-	fmt.Println(len(modifyFiles))
+
+	fmt.Printf("In project, you have added %d lines, removed %d lines, total modified %d liens, good job! :)\n", addedSum, removedSum, addedSum+removedSum)
 }

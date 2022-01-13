@@ -1,7 +1,9 @@
 
-.PHONY: loc install clean
+.PHONY: build install clean rebuild
 
-./build/loc: 
+rebuild: clean build install  
+
+build:
 	mkdir -p build && go build -o ./build/loc ./src/main
 
 install: ./build/loc
