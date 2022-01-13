@@ -1,0 +1,9 @@
+Package: loc
+Priority: optional
+Section: misc
+Maintainer: abstract liu <abstract-liu@zju.edu.cn>
+Architecture: all 
+Version: 1.0
+Depends: git 
+Description: a tony tool for coding efficiency 
+
