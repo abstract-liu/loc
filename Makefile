@@ -12,9 +12,8 @@ install: ./build/loc
 package: build
 	mkdir -p ./build/deb/usr/local/bin && \
 	mkdir -p ./build/deb/DEBIAN  && \
-	cp ./build/loc ./build/deb/usr/local && \
+	cp ./build/loc ./build/deb/usr/local/bin && \
 	cp ./deb/control ./build/deb/DEBIAN && \
-  	chown -R root:root ./build/deb && \	
 	dpkg -b ./build/deb ./build/loc_linux_amd64_v1.0.deb
 
 clean:
